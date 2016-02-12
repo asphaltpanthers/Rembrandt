@@ -9,8 +9,8 @@ exports.config = {
 
   //seleniumAddress: 'http://0.0.0.0:4444',
   // add proper version number
-  seleniumServerJar: './test/e2e/selenium-server-standalone-2.44.0.jar',
-  chromeDriver: './test/e2e/chromedriver.exe',
+  seleniumServerJar: './selenium/selenium-server-standalone-2.44.0.jar',
+  chromeDriver: './selenium/chromedriver.exe',
   specs: ['test/e2e/dist/**/*.js'],
 
   plugins: [{
