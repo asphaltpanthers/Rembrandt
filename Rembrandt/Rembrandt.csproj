@@ -78,6 +78,7 @@
     <Content Include="public\tsconfig.json" />
     <Content Include="public\tsd.json" />
     <Content Include="public\tslint.json" />
+    <Content Include="public\nightwatch\nightwatch.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -105,6 +106,8 @@
     <Content Include="public\index.html" />
     <Content Include="public\index.js" />
     <Content Include="public\karma.conf.js" />
+    <Content Include="public\nightwatch\gulpfile.js" />
+    <Content Include="public\nightwatch\tests\google.js" />
     <Content Include="public\protractor.conf.js" />
     <Content Include="public\src\app.html" />
     <Content Include="public\src\child-router.html" />
@@ -121,9 +124,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="public\nightwatch\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
