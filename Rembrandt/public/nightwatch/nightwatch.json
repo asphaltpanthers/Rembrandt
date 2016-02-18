@@ -32,14 +32,28 @@
         "browserName": "chrome",
         "javascriptEnabled": true,
         "acceptSslCerts": true
+      },
+      "globals": {
+        "screenshotPath": "screenshots/"
       }
     },
 
-    "chrome": {
+    "baseline": {
+      "launch_url": "http://localhost",
+      "selenium_port": 4444,
+      "selenium_host": "localhost",
+      "silent": true,
+      "screenshots": {
+        "enabled": false,
+        "path": ""
+      },
       "desiredCapabilities": {
         "browserName": "chrome",
         "javascriptEnabled": true,
         "acceptSslCerts": true
+      },
+      "globals": {
+        "screenshotPath": "screenshots/baseline/"
       }
     }
   }

@@ -10,6 +10,15 @@ gulp.task('test', ['lint'], function () {
         }));
 });
 
+gulp.task('baseline', ['lint'], function () {
+    "use strict";
+    return gulp.src('')
+        .pipe(nightwatch({
+            configFile: 'nightwatch.json',
+            cliArgs: [ '--env baseline' ]
+        }));
+});
+
 gulp.task('lint', function () {
     "use strict";
     return gulp.src('**/*.js')

@@ -4,7 +4,7 @@
         browser
             .url('http://www.google.com')
             .waitForElementVisible('body', 1000)
-            .saveScreenshot('screenshots/screenshot1.png')
+            .saveScreenshot(browser.globals.screenshotPath + '/screenshot1.png')
             .setValue('input[type=text]', 'nightwatch')
             .waitForElementVisible('button[name=btnG]', 1000)
             .click('button[name=btnG]')
