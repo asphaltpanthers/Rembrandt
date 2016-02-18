@@ -84,9 +84,5 @@
         "main": "client/shim.min"
       }
     }
-  },
-  "dependencies": {
-    "gulp-jslint": "^0.2.2",
-    "gulp-nightwatch": "^0.2.9"
   }
 }
