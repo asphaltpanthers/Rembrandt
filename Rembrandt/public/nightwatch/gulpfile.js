@@ -5,10 +5,16 @@ var resemble = require('node-resemble-js');
 var fs = require('fs');
 var path = require('path');
 var sequence = require('run-sequence');
+var del = require('del');
 
 gulp.task('test', function (callback) {
     "use strict";
-    return sequence('lint', 'takeScreenshots', 'compare', callback);
+    return sequence('lint', 'deleteScreenshots', 'takeScreenshots', 'compare', callback);
+});
+
+gulp.task('deleteScreenshots', function () {
+    "use strict";
+    return del(['./screenshots/*.png']);
 });
 
 gulp.task('takeScreenshots', function () {
@@ -16,15 +22,6 @@ gulp.task('takeScreenshots', function () {
     return gulp.src('')
         .pipe(nightwatch({
             configFile: 'nightwatch.json'
-        }));
-});
-
-gulp.task('baseline', ['lint'], function () {
-    "use strict";
-    return gulp.src('')
-        .pipe(nightwatch({
-            configFile: 'nightwatch.json',
-            cliArgs: [ '--env baseline' ]
         }));
 });
 
@@ -62,6 +59,15 @@ gulp.task('compare', function () {
             }
         });
     });
+});
+
+gulp.task('baseline', ['lint'], function () {
+    "use strict";
+    return gulp.src('')
+        .pipe(nightwatch({
+            configFile: 'nightwatch.json',
+            cliArgs: [ '--env baseline' ]
+        }));
 });
 
 gulp.task('lint', function () {
