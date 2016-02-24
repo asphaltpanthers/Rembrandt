@@ -51,7 +51,7 @@ gulp.task('compare', function () {
                             }
                             resemble(data).compareTo(baselineData).onComplete(function (comparisonData) {
                                 if (comparisonData.misMatchPercentage > 0) {
-                                    return console.error('The screenshot \'' + file + '\' does not match the baseline!');
+                                    return console.error('The screenshot \'' + file + '\' does not match the baseline! difference: ' + comparisonData.misMatchPercentage);
                                 }
                                 return console.log('The screenshot \'' + file + '\' matches the baseline.');
                             });
