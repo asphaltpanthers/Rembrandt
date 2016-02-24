@@ -87,6 +87,8 @@
   },
   "dependencies": {
     "gulp-jslint": "^0.2.2",
-    "gulp-nightwatch": "^0.2.9"
+    "gulp-nightwatch": "^0.2.9",
+    "node-resemble-js": "0.0.5",
+    "run-sequence": "^1.1.5"
   }
 }
