@@ -6,6 +6,7 @@ var fs = require('fs');
 var path = require('path');
 var sequence = require('run-sequence');
 var del = require('del');
+var paths = require('./paths.json');
 
 gulp.task('test', function (callback) {
     "use strict";
@@ -14,7 +15,7 @@ gulp.task('test', function (callback) {
 
 gulp.task('deleteScreenshots', function () {
     "use strict";
-    return del(['./screenshots/*.png']);
+    return del([paths.screenshots + '*.png']);
 });
 
 gulp.task('takeScreenshots', function () {
@@ -27,31 +28,32 @@ gulp.task('takeScreenshots', function () {
 
 gulp.task('compare', function () {
     "use strict";
-    fs.readdir('./screenshots', function (err, files) {
+    fs.readdir(paths.screenshots, function (err, files) {
         if (err) {
-            console.error(err);
+            return console.error(err);
         }
         files.forEach(function (file) {
             if (path.extname(file) === '.png') {
-                fs.readdir('./screenshots/baseline', function (err, baselineFiles) {
+                fs.readdir(paths.baseline, function (err, baselineFiles) {
                     if (err) {
-                        console.error(err);
+                        return console.error(err);
                     }
                     if (baselineFiles.indexOf(file) <= -1) {
                         return console.error('Baseline does not exist!');
                     }
-                    fs.readFile('./screenshots/' + file, function (err, data) {
+                    fs.readFile(paths.screenshots + file, function (err, data) {
                         if (err) {
-                            console.error(err);
+                            return console.error(err);
                         }
-                        fs.readFile('./screenshots/baseline/' + file, function (err, baselineData) {
+                        fs.readFile(paths.baseline + file, function (err, baselineData) {
                             if (err) {
-                                console.error(err);
+                                return console.error(err);
                             }
                             resemble(data).compareTo(baselineData).onComplete(function (comparisonData) {
                                 if (comparisonData.misMatchPercentage > 0) {
-                                    console.error('The screenshot \'' + file + '\' does not match the baseline!');
+                                    return console.error('The screenshot \'' + file + '\' does not match the baseline!');
                                 }
+                                return console.log('The screenshot \'' + file + '\' matches the baseline.');
                             });
                         });
                     });

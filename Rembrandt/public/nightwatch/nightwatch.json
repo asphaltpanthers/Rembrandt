@@ -53,7 +53,7 @@
         "acceptSslCerts": true
       },
       "globals": {
-        "screenshotPath": "screenshots/baseline/"
+        "screenshotPath": "baseline/"
       }
     }
   }

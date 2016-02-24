@@ -79,6 +79,7 @@
     <Content Include="public\tsd.json" />
     <Content Include="public\tslint.json" />
     <Content Include="public\nightwatch\nightwatch.json" />
+    <Content Include="public\nightwatch\paths.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
