@@ -210,3 +210,6 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+/Rembrandt/public/nightwatch/baseline
+/Rembrandt/public/nightwatch/reports
+/Rembrandt/public/nightwatch/screenshots
