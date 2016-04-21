@@ -8,13 +8,13 @@
 
   "selenium": {
     "start_process": true,
-    "server_path": "../selenium/selenium-server-standalone-2.45.0.jar",
+    "server_path": "../selenium/selenium-server-standalone-2.53.0.jar",
     "log_path": "",
     "host": "127.0.0.1",
     "port": 4444,
     "cli_args": {
       "webdriver.chrome.driver": "../selenium/chromedriver.exe",
-      "webdriver.ie.driver": ""
+      "webdriver.ie.driver": "../selenium/IEDriverServer.exe"
     }
   },
 
@@ -34,26 +34,31 @@
         "acceptSslCerts": true
       },
       "globals": {
-        "screenshotPath": "screenshots/"
+        "screenshotPath": "screenshots/",
+        "browserName": "chrome",
+        "retryAssertionTimeout": "1000"
       }
     },
-
     "baseline": {
-      "launch_url": "http://localhost",
-      "selenium_port": 4444,
-      "selenium_host": "localhost",
-      "silent": true,
-      "screenshots": {
-        "enabled": false,
-        "path": ""
-      },
+      "globals": {
+        "screenshotPath": "baseline/",
+        "browserName": ""
+      }
+    },
+    "firefox": {
       "desiredCapabilities": {
-        "browserName": "chrome",
-        "javascriptEnabled": true,
-        "acceptSslCerts": true
+        "browserName": "firefox"
       },
       "globals": {
-        "screenshotPath": "baseline/"
+        "browserName": "firefox"
+      }
+    },
+    "ie": {
+      "desiredCapabilities": {
+        "browserName": "internet explorer"
+      },
+      "globals": {
+        "browserName": "ie"
       }
     }
   }

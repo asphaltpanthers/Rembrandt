@@ -7,6 +7,7 @@ var path = require('path');
 var sequence = require('run-sequence');
 var del = require('del');
 var paths = require('./paths.json');
+var glob = require('glob');
 
 gulp.task('test', function (callback) {
     "use strict";
@@ -15,14 +16,15 @@ gulp.task('test', function (callback) {
 
 gulp.task('deleteScreenshots', function () {
     "use strict";
-    return del([paths.screenshots + '*.png']);
+    return del([paths.screenshots + '*.png*']);
 });
 
 gulp.task('takeScreenshots', function () {
     "use strict";
     return gulp.src('')
         .pipe(nightwatch({
-            configFile: 'nightwatch.json'
+            configFile: 'nightwatch.json',
+            cliArgs: ['--env default,firefox,ie']
         }));
 });
 
@@ -33,27 +35,32 @@ gulp.task('compare', function () {
             return console.error(err);
         }
         files.forEach(function (file) {
-            if (path.extname(file) === '.png') {
+            if (path.extname(file).indexOf('.png') > -1) {
                 fs.readdir(paths.baseline, function (err, baselineFiles) {
                     if (err) {
                         return console.error(err);
                     }
-                    if (baselineFiles.indexOf(file) <= -1) {
+                    if (baselineFiles.map(function (f) { return f.replace(/\.[a-zA-Z0-9]+$/, ""); }).indexOf(file.replace(/\.[a-zA-Z0-9]+$/, "")) <= -1) {
                         return console.error('Baseline does not exist!');
                     }
                     fs.readFile(paths.screenshots + file, function (err, data) {
                         if (err) {
                             return console.error(err);
                         }
-                        fs.readFile(paths.baseline + file, function (err, baselineData) {
+                        glob(paths.baseline + file.replace(/\.[a-zA-Z0-9]+$/, "") + ".*", function (err, files) {
                             if (err) {
                                 return console.error(err);
                             }
-                            resemble(data).compareTo(baselineData).ignoreAntialiasing().onComplete(function (comparisonData) {
-                                if (comparisonData.misMatchPercentage > 0) {
-                                    return console.error('The screenshot \'' + file + '\' does not match the baseline! difference: ' + comparisonData.misMatchPercentage);
+                            fs.readFile(files[0], function (err, baselineData) {
+                                if (err) {
+                                    return console.error(err);
                                 }
-                                return console.log('The screenshot \'' + file + '\' matches the baseline.');
+                                resemble(data).compareTo(baselineData).ignoreAntialiasing().onComplete(function (comparisonData) {
+                                    if (comparisonData.misMatchPercentage > 0) {
+                                        return console.error('The screenshot \'' + file + '\' does not match the baseline! difference: ' + comparisonData.misMatchPercentage);
+                                    }
+                                    return console.log('The screenshot \'' + file + '\' matches the baseline.');
+                                });
                             });
                         });
                     });

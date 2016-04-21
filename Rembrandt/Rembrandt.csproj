@@ -72,6 +72,9 @@
     <Content Include="public\build\bundles.json" />
     <Content Include="public\build\export.json" />
     <Content Include="public\package.json" />
+    <Content Include="public\selenium\chromedriver.exe" />
+    <Content Include="public\selenium\IEDriverServer.exe" />
+    <Content Include="public\selenium\selenium-server-standalone-2.53.0.jar" />
     <Content Include="public\test\e2e\dist\demo.spec.js.map" />
     <Content Include="public\test\e2e\dist\skeleton.po.js.map" />
     <Content Include="public\test\e2e\dist\welcome.po.js.map" />
