@@ -49,7 +49,7 @@ gulp.task('compare', function () {
                             if (err) {
                                 return console.error(err);
                             }
-                            resemble(data).compareTo(baselineData).onComplete(function (comparisonData) {
+                            resemble(data).compareTo(baselineData).ignoreAntialiasing().onComplete(function (comparisonData) {
                                 if (comparisonData.misMatchPercentage > 0) {
                                     return console.error('The screenshot \'' + file + '\' does not match the baseline! difference: ' + comparisonData.misMatchPercentage);
                                 }
