@@ -40,14 +40,15 @@ gulp.task('compare', function () {
                     if (err) {
                         return console.error(err);
                     }
-                    if (baselineFiles.map(function (f) { return f.replace(/\.[a-zA-Z0-9]+$/, ""); }).indexOf(file.replace(/\.[a-zA-Z0-9]+$/, "")) <= -1) {
+                    var screenshotRegex = new RegExp(paths.screenshotRegex);
+                    if (baselineFiles.map(function (f) { return f.replace(screenshotRegex, ""); }).indexOf(file.replace(screenshotRegex, "")) <= -1) {
                         return console.error('Baseline does not exist!');
                     }
                     fs.readFile(paths.screenshots + file, function (err, data) {
                         if (err) {
                             return console.error(err);
                         }
-                        glob(paths.baseline + file.replace(/\.[a-zA-Z0-9]+$/, "") + ".*", function (err, files) {
+                        glob(paths.baseline + file.replace(screenshotRegex, "") + ".*", function (err, files) {
                             if (err) {
                                 return console.error(err);
                             }

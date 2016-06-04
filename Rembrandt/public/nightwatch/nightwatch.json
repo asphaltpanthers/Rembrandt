@@ -42,7 +42,7 @@
     "baseline": {
       "globals": {
         "screenshotPath": "baseline/",
-        "browserName": ""
+        "browserName": "baseline"
       }
     },
     "firefox": {
