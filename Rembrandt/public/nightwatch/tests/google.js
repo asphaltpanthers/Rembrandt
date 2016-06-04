@@ -2,6 +2,7 @@
     'Demo test Google': function (browser) {
         "use strict";
         browser
+            .maximizeWindow()
             .url('http://www.google.com')
             .waitForElementVisible('body', 1000)
             .saveScreenshot(browser.globals.screenshotPath + '/screenshot1.' + browser.globals.browserName + '.png')
