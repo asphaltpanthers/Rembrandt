@@ -1,0 +1,12 @@
+{
+  "name": "rembrandt",
+  "version": "1.0.0",
+  "description": "An automated solution for visual testing.",
+  "main": "index.js",
+  "author": "Dustin Iser",
+  "jspm": {
+    "directories": {
+      "baseURL": "wwwroot"
+    }
+  }
+}
