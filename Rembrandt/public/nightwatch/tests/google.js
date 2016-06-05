@@ -5,14 +5,14 @@
             .maximizeWindow()
             .url('http://apinvent.com')
             .waitForElementVisible('#lblTrademark', 1000)
-            .saveScreenshot(browser.globals.screenshotPath + '/screenshot1.' + browser.globals.browserName + '.png')
+            .rembrandtScreenshot()
             .click('#lnkBlog')
             .window_handles(function (result) {
                 var handle = result.value[1];
                 browser.switchWindow(handle);
             })
             .waitForElementVisible("a[rel='category tag']", 1000)
-            .saveScreenshot(browser.globals.screenshotPath + '/screenshot2.' + browser.globals.browserName + '.png')
+            .rembrandtScreenshot()
             .end();
     }
 };

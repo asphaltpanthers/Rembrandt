@@ -70,6 +70,7 @@
   <ItemGroup>
     <Content Include="public\build\bundles.json" />
     <Content Include="public\build\export.json" />
+    <Content Include="public\nightwatch\commands\rembrandtScreenshot.js" />
     <Content Include="public\package.json" />
     <Content Include="public\selenium\chromedriver.exe" />
     <Content Include="public\selenium\IEDriverServer.exe" />
