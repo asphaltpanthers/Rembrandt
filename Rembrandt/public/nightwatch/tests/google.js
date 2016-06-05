@@ -3,14 +3,15 @@
         "use strict";
         browser
             .maximizeWindow()
-            .url('http://www.google.com')
-            .waitForElementVisible('body', 1000)
+            .url('http://apinvent.com')
+            .waitForElementVisible('#lblTrademark', 1000)
             .saveScreenshot(browser.globals.screenshotPath + '/screenshot1.' + browser.globals.browserName + '.png')
-            .setValue('input[type=text]', 'nightwatch')
-            .waitForElementVisible('button[name=btnG]', 1000)
-            .click('button[name=btnG]')
-            .pause(1000)
-            .assert.containsText('#main', 'Night Watch')
+            .click('#lnkBlog')
+            .window_handles(function (result) {
+                var handle = result.value[1];
+                browser.switchWindow(handle);
+            })
+            .waitForElementVisible("a[rel='category tag']", 1000)
             .saveScreenshot(browser.globals.screenshotPath + '/screenshot2.' + browser.globals.browserName + '.png')
             .end();
     }
