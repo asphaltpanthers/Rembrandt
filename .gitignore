@@ -213,3 +213,13 @@ ModelManifest.xml
 /Rembrandt/public/nightwatch/baseline
 /Rembrandt/public/nightwatch/reports
 /Rembrandt/public/nightwatch/screenshots
+/Rembrandt/public/src
+/Rembrandt/public/test/e2e/src
+/Rembrandt/public/test/unit
+/Rembrandt.DNXCore/nightwatch/baseline
+/Rembrandt.DNXCore/nightwatch/reports
+/Rembrandt.DNXCore/nightwatch/screenshots
+/Rembrandt.DNXCore/wwwroot/dist
+/Rembrandt.DNXCore/wwwroot/app.js
+/Rembrandt.DNXCore/wwwroot/home.js
+/Rembrandt.DNXCore/wwwroot/nav-bar.js

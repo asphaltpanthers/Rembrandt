@@ -1,0 +1,5 @@
+﻿{
+  "baseline": "./baseline/",
+  "screenshots": "./screenshots/",
+  "screenshotRegex": "\\.[a-zA-Z0-9]+\\.[a-zA-Z0-9]+$"
+}
