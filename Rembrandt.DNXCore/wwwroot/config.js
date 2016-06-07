@@ -180,9 +180,7 @@ System.config({
   bundles: {
     "dist/libs.js": [
       "github:twbs/bootstrap@3.3.6.js",
-      "github:twbs/bootstrap@3.3.6/js/bootstrap.js",
-      "npm:jquery@2.2.4.js",
-      "npm:jquery@2.2.4/dist/jquery.js"
+      "github:twbs/bootstrap@3.3.6/js/bootstrap.js"
     ],
     "dist/aurelia.js": [
       "npm:aurelia-binding@1.0.0-beta.1.3.6.js",
